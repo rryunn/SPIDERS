@@ -157,7 +157,7 @@ RegistCalendar();
 
 
 var j=9;
-var a = 9;
+var a = 9; //박스에 적힌 9시처럼 시간과 같이 id를 만들기 위해서 9시 30분은 9.5
 for(var i = 0; i<26; i++){
     if(i%2==0){
         selectTime.innerHTML += `<div class = "box" id = "${a}"> ${j}시<br></div>`;
@@ -227,6 +227,7 @@ boxes.forEach(function(box) {
     });
   });
 
+  
 
 // 확인 버튼 클릭 이벤트 핸들러
 document.getElementById("ok").addEventListener("click", function() {

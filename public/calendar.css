@@ -54,6 +54,8 @@ h1{
     padding: 20px;
     border-left: 1px solid black;
     text-align: center; /* 텍스트를 가운데 정렬 */
+    height: 600px;
+    overflow: scroll;
 }
 
 #regist{
@@ -154,7 +156,7 @@ body{
 }
 
 .listItem {
-    border: 2px solid black;
+    border: 1px solid black;
     padding: 30px;
 
     width: 900px; /* 박스의 너비를 조절합니다. */
@@ -214,6 +216,4 @@ body{
     margin: 0 auto 10px auto; /* 가운데 정렬 및 각 listItem 사이의 간격 조절합니다. */
 }
 
-#todo_tr {
-    border: 1px solid black;
-}
+

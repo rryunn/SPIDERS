@@ -11,8 +11,10 @@ var toMonth = today.getMonth() + 1;
 var toYear = today.getFullYear();
 var start = first.getDay();
 var tx = 0;
+
 now.innerHTML = `${toYear}년 ${toMonth}월`;
 calDate.textContent = today.getDate();
+
 
 function SelectCalendar(){
     for (var i = 0; i < 6; i ++) {
@@ -74,7 +76,9 @@ function SelectCalendar(){
                 if (/\D/.test(td_date)) {
                     td_date = this.textContent.substring(0, 1); //정규표현식 : 숫자가 아닌 문자가 있다면
                 }
-                calDate.textContent =td_date;
+
+                calDate.textContent = td_date;
+                showTable();
             });
 
             $tr.appendChild($td);
@@ -126,8 +130,6 @@ prev.addEventListener("click", (e) =>{
 
 SelectCalendar();
 
-
-
 function ComeSchedule() {
     fetch('/schedule')
         .then(response => response.json())
@@ -142,6 +144,10 @@ function ComeSchedule() {
                     td.appendChild(dataList);
                     dataList.classList.add('schedule-info'); 
                 }
+
+                const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}`;
+                const ID = document.getElementById(calId);
+
             });
         })
         .catch(error => {
@@ -149,3 +155,31 @@ function ComeSchedule() {
         });
 }
 ComeSchedule();
+
+//cal-date라는 변수로 div를 새로 만들고, 그 다음에 toYear 년 , 월 , 일 로 id를 만든다
+// 불러온 날들로 dataID를 만들고
+//해당 DATAID의 값이 존재한다면
+// 불러온 시간과 같은 시간대가 있따면
+// 그 시간대의 DIV를 색칠한다.
+
+
+var user = document.querySelector("#todo_user");
+var time = document.getElementById('todo_time');
+
+function showTable() {
+    var t = 9;
+    var j = 9;
+    for (var i = 0; i < 26; i++) {
+        var todo_tr = document.createElement('div');
+        const todo_id = `today_${toYear}${toMonth}${calDate.textContent}${j}`;
+        j = j+ 0.5;
+        todo_tr.setAttribute('id', todo_id);
+        todo_tr.textContent = t % 1 == 0 ? `${t}:00 ~ ${t}:30` : `${t - 0.5}:30 ~ ${t + 0.5}:00`;
+        t = t + 0.5;
+        todo_tr.style.border = "1px solid black";
+        todo_tr.style.height = "50px";
+        time.appendChild(todo_tr);
+    }
+}
+
+showTable();

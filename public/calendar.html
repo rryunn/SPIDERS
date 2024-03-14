@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스파이더스 합주 일정</title>
+  <link rel="stylesheet" href="calendar.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class = "container">
+        <header id = "header">
+            <h1 style="color: white; font-weight: bold; " >SPIDERS 
+                <ul id = "list">
+                    <li id="li1" onclick = "showCalendar()"; style="font-size: 18px; color : red";> 전체 일정 </li>
+                    <li id="li2" onclick = "showRegist()"> 일정 등록하기 </li>
+                    <li id="li3" onclick = "showChange()"> 등록된 일정 확인/변경하기 </li>
+                </ul>
+            </h1>
+    
+        </header>
+        <br>
+        <h2 id="name">오늘의 일정</h2>
+        <div id = "mini_container">
+
+            <section id = "calendar" >
+                <div class = "calendar-left">
+                    <table id = "ctable">
+                        <thead> 
+                            <p id="side"> 
+                                <label id = "prev">
+                                 &#60;&#60;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </label>
+        
+                                <label id = "now">
+                                </label>
+        
+                                <label id = "next">
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#62;&#62;
+                                </label>
+                                
+                            </p>
+                            
+                            <tr id = 'tr'>
+                                <td class = "sun" style="text-align: center; color: red;">Sun</td>
+                                <td style="text-align: center;">Mon</td>
+                                <td style="text-align: center;">Tue</td>
+                                <td style="text-align: center;">Wed</td>
+                                <td style="text-align: center;">Thu</td>
+                                <td style="text-align: center;">Fri</td>
+                                <td class= "sat" style="text-align: center; color: blue;">Sat</td>
+                            </tr>
+                        <thead>
+                        <tbody id = "calendar-body" class = "calendar-body"></tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="calendar_date">
+                <div class = "calendar-right">
+                    <div id = "cal-date"></div>
+                </div>
+                <div id = "todo_user"></div>
+                <table id = "todo_time">
+                </table>
+            </section>
+
+        </div>
+
+    <selection class = "hidden" id = "regist" > 
+        <h2 id="rtitle">날짜와 시간을 선택해주세요.</h2>
+        <div id="mini-cal">
+            <table id = "mtable">
+                <thead> 
+                    <p id ="mside"> 
+                        <label id = "mprev">
+                            &#60;&#60;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+
+                        <label id = "mnow">
+                        </label>
+
+                        <label id = "mnext">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &#62;&#62;
+                        </label>
+                    </p>
+                             
+                    <tr id = 'mtr'>
+                        <td class = "sun" style="text-align: center; color: red;">Sun</td>
+                        <td style="text-align: center;">Mon</td>
+                        <td style="text-align: center;">Tue</td>
+                        <td style="text-align: center;">Wed</td>
+                        <td style="text-align: center;">Thu</td>
+                        <td style="text-align: center;">Fri</td>
+                        <td class= "sat" style="text-align: center; color: blue;">Sat</td>
+                    </tr>
+                <thead>
+                <tbody id = "miniCalendar" class = "miniCalendar"></tbody>
+            </table>
+        </div>
+        <div id="selectTime">
+            <br>
+            시간 선택(30분 간격)
+            <br>
+        </div>
+        <br>
+        <div id="result">
+            날짜 : <span id="result_year"></span>년 <span id="result_month"></span>월 <span id="result_day"></span>일<br>
+            시간 : <span id="result_time"></span> <br>
+            사용자명: <input type="text"id="result_who"><br>
+
+        </div>
+        <button id="ok">확인</button>
+    </selection>
+
+    <selection class = "hidden" id = "change" > 
+    </selection>
+    </div>      
+
+
+
+</body>
+
+</html>
+<script src="calendar.js"></script>
+<script src="date.js"></script>
+<script src="regist.js"></script>
+<script src="change.js"></script>
+<script src="todo.js"></script>

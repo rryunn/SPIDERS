@@ -1,0 +1,219 @@
+h1{
+    text-align: left; 
+    margin-left: 50px;
+    background-color: black;
+    margin-top: 0;
+    line-height: 65px;
+}
+
+
+#name{
+    text-align: center ;
+    font-size: 35px;
+}
+
+.container h2{
+    margin-top: 0;
+}
+#list{
+    float: right; /* 왼쪽으로 플로팅 */
+    display: flex;
+    font-size: 15px;
+    margin: auto;
+    color: white;
+    line-height: 35px;
+    margin-right: 20px;
+} 
+
+#list li{
+    margin: 15px;
+    list-style: none;
+}
+#tr{
+    font-size: 40px;
+}
+
+.hidden{
+    display:none;
+}
+
+#mini_container{
+    display:flex;
+    border: 1px solid black;
+    width: 80%;
+    margin: 0 auto; /* 가로 방향으로 자동 마진을 통해 중앙 정렬 */
+
+}
+
+.auto{
+    margin: 0 auto; /* 가로 방향으로 자동 마진을 통해 중앙 정렬 */
+}
+
+#calendar_date{
+    width: 400px;
+    padding: 20px;
+    border-left: 1px solid black;
+    text-align: center; /* 텍스트를 가운데 정렬 */
+}
+
+#regist{
+    flex : 2;
+    padding : 20px;
+    text-align: center;
+}
+#change{
+    flex : 2;
+    padding : 20px;
+    text-align: center;
+}
+
+#calendar-body{
+    font-size: 40px;  
+    text-align: center;
+}
+
+#rtitle{
+    margin-bottom: 30px;
+}
+#side{
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+#calendar{
+    flex:2;
+}
+#ctable {
+    font-size: 50px;
+    position: relative;
+    width: 100%; /* 테이블이 부모 요소에 꽉 차도록 설정 */
+    padding: 15px;    
+}
+
+#mtable {
+    font-size: 30px;
+    position: relative;
+    width: 100%; /* 테이블이 부모 요소에 꽉 차도록 설정 */
+    /*background-color: rgb(189, 178, 175);*/
+
+}
+
+#cal-date{
+    font-size: 150px;
+}
+
+#mside{
+    text-align: center;
+    font-size: 20px;
+}
+
+.box{
+    
+    width: 40px; 
+    height: 60px; 
+    background-color:rgb(230, 210, 204); 
+    margin: 3px; /* 각 박스 사이의 간격 설정 */
+    display : inline-block;
+    
+}
+
+#result{
+    
+    border:1px solid black;
+    margin: 0 auto; /* 좌우 마진을 auto로 설정하여 수평 가운데 정렬 */
+    width: 300px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    
+
+}
+#ok {
+    position: fixed;
+    bottom: 50px; /* 아래에서의 위치 */
+    right: 200px; /* 오른쪽에서의 위치 */
+    width: 100px; /* 가로 크기 */
+    height: 50px; /* 세로 크기 */
+}
+
+body{
+    font-family: "Gowun Dodum", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    }
+      
+#cal-date{
+    color:rgb(137, 25, 25);
+}
+
+#mini-cal{
+    border:1px solid black;
+    padding-bottom: 20px;
+    width: 80%;
+    margin: 0 auto ;
+}
+
+.listItem {
+    border: 2px solid black;
+    padding: 30px;
+
+    width: 900px; /* 박스의 너비를 조절합니다. */
+    margin: 0 auto 10px auto; /* 가운데 정렬 및 각 listItem 사이의 간격 조절합니다. */
+    font-size: 20px;
+    display: flex;
+    /* justify-content를 space-between로 설정하여 자식 요소들 사이에 공간을 균등하게 배분합니다.
+        이렇게 하면 수정 버튼이 항상 오른쪽 끝에 위치하게 됩니다. */
+    justify-content: space-between;
+    border-radius: 30px; /* 끝이 둥근 타원 모양으로 만듭니다. */
+
+    margin-bottom: 25px;
+}
+
+
+#change{
+    overflow: scroll;
+}
+
+#regist{
+    overflow: scroll;
+}
+
+.editButton{
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+}
+
+.delButton{
+    font-size: 15px;
+    width: 80px;
+    height: 40px;
+}
+
+
+#header{
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    height: 70px;
+
+}
+.buttonContainer button{
+    margin-left: 10px;
+}
+
+#ctitle{
+    font-size: 25px;
+    font-weight: bolder;
+    padding-bottom: 20px;
+}
+
+.schedule-info {
+    font-size: 10px;
+    background-color: lightblue;
+    border-radius: 10px; /* 끝이 둥근 타원 모양으로 만듭니다. */
+    margin: 0 auto 10px auto; /* 가운데 정렬 및 각 listItem 사이의 간격 조절합니다. */
+}
+
+#todo_tr {
+    border: 1px solid black;
+}

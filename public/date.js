@@ -76,9 +76,8 @@ function SelectCalendar(){
                 if (/\D/.test(td_date)) {
                     td_date = this.textContent.substring(0, 1); //정규표현식 : 숫자가 아닌 문자가 있다면
                 }
-
                 calDate.textContent = td_date;
-                showTable();
+                showTable(calDate); // TABLE를 클릭할때마다 새롭게 가지고 와야 ID가 다르게 적용됨.
             });
 
             $tr.appendChild($td);
@@ -144,10 +143,35 @@ function ComeSchedule() {
                     td.appendChild(dataList);
                     dataList.classList.add('schedule-info'); 
                 }
+                //이미 그 calID가 있다면 새롭게 등록되지 않는다 ! 
 
-                const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}`;
-                const ID = document.getElementById(calId);
+                var minHour = schedule.TIME.substring(0,2);
+                var minMin= schedule.TIME.substring(3,5);
+                var maxHour = schedule.TIME.substring(9,11);
+                var maxMin = schedule.TIME.substring(12,14);
+                var min =0;
+                var max = 0;
+                if(minMin === "30"){
+                    min = parseInt(minHour) + 0.5;
+                }
+                else if(minMin === "00"){
+                    min  = parseInt(minHour);
+                }
 
+                if(maxMin === "30"){
+                    max = parseInt(maxHour) + 0.5;
+                }
+                else if(maxMin === "00"){
+                    max  = parseInt(maxHour);
+                }
+                const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${min}`;
+                const dd = document.getElementById(calId);
+
+                if(dd){
+                    for(var j = min; j < 22; j++){
+                        ID.style.backgroundColor = "lightblue";
+                    }
+                }
             });
         })
         .catch(error => {
@@ -156,17 +180,14 @@ function ComeSchedule() {
 }
 ComeSchedule();
 
-//cal-date라는 변수로 div를 새로 만들고, 그 다음에 toYear 년 , 월 , 일 로 id를 만든다
-// 불러온 날들로 dataID를 만들고
-//해당 DATAID의 값이 존재한다면
-// 불러온 시간과 같은 시간대가 있따면
-// 그 시간대의 DIV를 색칠한다.
-
-
 var user = document.querySelector("#todo_user");
 var time = document.getElementById('todo_time');
 
-function showTable() {
+function showTable(calDate) {
+    //td를 새롭게 클릭 시 기존에 만들어졌던 table은 없애고 새롭게 만들어야 한다.
+    while (time.firstChild) {
+        time.removeChild(time.firstChild);
+    }
     var t = 9;
     var j = 9;
     for (var i = 0; i < 26; i++) {
@@ -182,4 +203,4 @@ function showTable() {
     }
 }
 
-showTable();
+showTable(calDate);

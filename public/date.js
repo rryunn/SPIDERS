@@ -78,6 +78,7 @@ function SelectCalendar(){
                 }
                 calDate.textContent = td_date;
                 showTable(calDate); // TABLE를 클릭할때마다 새롭게 가지고 와야 ID가 다르게 적용됨.
+                
             });
 
             $tr.appendChild($td);
@@ -126,8 +127,8 @@ prev.addEventListener("click", (e) =>{
     }
 )
 
-
 SelectCalendar();
+
 
 function ComeSchedule() {
     fetch('/schedule')
@@ -151,26 +152,25 @@ function ComeSchedule() {
                 var maxMin = schedule.TIME.substring(12,14);
                 var min =0;
                 var max = 0;
-                if(minMin === "30"){
+                var t = min;
+                if(parseInt(minMin) === 30){
                     min = parseInt(minHour) + 0.5;
                 }
-                else if(minMin === "00"){
+                else if(parseInt(minMin) === 0){
                     min  = parseInt(minHour);
                 }
 
-                if(maxMin === "30"){
+                if(parseInt(maxMin) === 30){
                     max = parseInt(maxHour) + 0.5;
                 }
-                else if(maxMin === "00"){
+                else if(parseInt(maxMin) === 0){
                     max  = parseInt(maxHour);
                 }
-                const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${min}`;
+                const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${t}`;
                 const dd = document.getElementById(calId);
-
                 if(dd){
-                    for(var j = min; j < 22; j++){
-                        ID.style.backgroundColor = "lightblue";
-                    }
+                    if(min<t <max)
+                        dd.style.backgroundColor = "lightblue";
                 }
             });
         })
@@ -183,7 +183,7 @@ ComeSchedule();
 var user = document.querySelector("#todo_user");
 var time = document.getElementById('todo_time');
 
-function showTable(calDate) {
+function showTable() {
     //td를 새롭게 클릭 시 기존에 만들어졌던 table은 없애고 새롭게 만들어야 한다.
     while (time.firstChild) {
         time.removeChild(time.firstChild);
@@ -203,4 +203,4 @@ function showTable(calDate) {
     }
 }
 
-showTable(calDate);
+showTable();

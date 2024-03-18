@@ -144,7 +144,7 @@ function ComeSchedule() {
                     td.appendChild(dataList);
                     dataList.classList.add('schedule-info'); 
                 }
-                //이미 그 calID가 있다면 새롭게 등록되지 않는다 ! 
+                //이미 그 calID가 있다면 새롭게 등록되지 않는다
 
                 var minHour = schedule.TIME.substring(0,2);
                 var minMin= schedule.TIME.substring(3,5);

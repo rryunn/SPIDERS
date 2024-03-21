@@ -67,44 +67,7 @@ function showSchedule() {
                     confirmButton.textContent = '확인';
 
                     confirmButton.addEventListener('click', () => {
-                        // 수정된 내용을 객체로 만듭니다.
-                        const updatedSchedule = {
-                            MONTH: monthInput.value,
-                            DAY: dayInput.value,
-                            TIME: timeInput.value,
-                            NAME: nameInput.value
-                            
-                        };
-                
-                        fetch('/update-schedule', {
-                            method: 'PUT', // 수정 요청은 PUT 메소드를 사용합니다.
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(beforeSchedule),
-                            body: JSON.stringify(updatedSchedule), // 수정된 일정 정보를 서버로 전송합니다.
-                        })
-                        .then(response => {
-                            if (response.ok) {
-                                // 화면에 반영된 수정 내용을 보여줍니다.
-                                listItem.textContent = `${updatedSchedule.MONTH}, ${updatedSchedule.DAY}, ${updatedSchedule.TIME}, 사용자:${updatedSchedule.NAME}`;
-                                console.log('일정이 성공적으로 수정되었습니다.');
-                            } else {
-                                console.error('일정 수정 실패:', response.statusText);
-                            }
-                        })
-                        .catch(error => {
-                            console.error('일정 수정 중 오류 발생:', error);
-                        });
-                    });
-
-                    //입력 박스를 각 LISTitem에 연결하기
-                    listItem.appendChild(monthInput);
-                    listItem.appendChild(dayInput);
-                    listItem.appendChild(timeInput);
-                    listItem.appendChild(nameInput);
-                    listItem.appendChild(confirmButton);
-                
+                        //
                 });
 
                 const delButton = document.createElement('button'); //html 요소에 쓸거 createElement 이용하는거 잊지말기 

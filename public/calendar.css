@@ -38,11 +38,17 @@ h1{
 }
 
 #mini_container{
-    display:flex;
+
     border: 1px solid black;
-    width: 80%;
+    width: 85%;
     margin: 0 auto; /* 가로 방향으로 자동 마진을 통해 중앙 정렬 */
 
+}
+#calendar, #calendar_date {
+
+    display: inline-block; /* 인라인 블록 요소로 표시 */
+    vertical-align: top; /* 상단 정렬 */
+    width: calc(68%); /* 너비를 50%로 설정 (간격을 위해 5px 제외) */
 }
 
 .auto{
@@ -53,8 +59,8 @@ h1{
     width: 400px;
     padding: 20px;
     border-left: 1px solid black;
+    height: 650px;
     text-align: center; /* 텍스트를 가운데 정렬 */
-    height: 600px;
     overflow: scroll;
 }
 

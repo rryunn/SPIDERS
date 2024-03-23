@@ -22,6 +22,10 @@ function SelectCalendar(){
         for(var j = 0; j < 7; j ++) {
 
             var $td = document.createElement('td');
+            $td.style.width = "80px";
+            $td.style.height = "80px";
+            $td.style.textAlign = "center"; // 텍스트 가운데 정렬
+            $td.style.verticalAlign = "top"; // 셀의 상단 정렬
             var date = (i * 7) + j -start+ 1;
         
             if(toMonth === 4 || toMonth ===6||toMonth ===9||toMonth ===11){
@@ -143,7 +147,7 @@ function ComeSchedule() {
             const td = document.getElementById(dateId);
             if (td) {
                 const dataList = document.createElement('div');
-                dataList.textContent = `시간: ${schedule.TIME}, 사용자: ${schedule.NAME}`;
+                dataList.textContent = `${schedule.TIME}, ${schedule.NAME}`;
                 td.appendChild(dataList);
                 dataList.classList.add('schedule-info'); 
             }
@@ -190,7 +194,10 @@ function TimeSchedule() {
                     const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${t}`;
                     const dd = document.getElementById(calId);
                     if(dd){
-                       dd.style.backgroundColor = "lightblue";
+                        const userList = document.createElement('div');
+                        userList.textContent = `${schedule.NAME}`;
+                        dd.appendChild(userList);
+                        dd.style.backgroundColor = "lightblue";
                     }
                 };
             })

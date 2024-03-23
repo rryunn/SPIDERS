@@ -160,6 +160,7 @@ var j=9;
 var a = 9; //박스에 적힌 9시처럼 시간과 같이 id를 만들기 위해서 9시 30분은 9.5
 for(var i = 0; i<26; i++){
     if(i%2==0){
+
         selectTime.innerHTML += `<div class = "box" id = "${a}"> ${j}시<br></div>`;
         j=j+1;
         a=a+1;
@@ -190,6 +191,7 @@ boxes.forEach(function(box) {
                 boxIds.splice(index, 1); // index번째에 위치한 요소 1개를 제거
             }
 
+
         }
 
         else{
@@ -205,24 +207,29 @@ boxes.forEach(function(box) {
         
         var smallestHour = parseInt(smallestId); // 정수부를 시간으로 설정
         var smallestMinute = smallestId % 1 !== 0 ? "30" : "00"; // 소수부가 있는 경우에는 30분, 없는 경우에는 00분으로 설정
-        smallestId = `${smallestHour}:${smallestMinute}`; // 시간과 분을 합쳐서 표시
+        if(smallestHour ==9){
+            smallestId = `0${smallestHour}:${smallestMinute}`; // 시간과 분을 합쳐서 표시
+        }else{
+            smallestId = `${smallestHour}:${smallestMinute}`; // 시간과 분을 합쳐서 표시
+        }
+
 
         if(largestId % 1 === 0){
             var largestHour = parseInt(largestId);
             var largestMinute = "30";
-            largestId = `${largestHour}:${largestMinute}`;
+            if(largestHour == 9)
+                largestId = `0${largestHour}:${largestMinute}`;
+            else{
+                largestId = `${largestHour}:${largestMinute}`;
+            }
         }
         else if(largestId % 1 !== 0){
             var largestHour = parseInt(largestId+1);
             var largestMinute = "00";
             largestId = `${largestHour}:${largestMinute}`;
         }
+
         result_time.innerHTML = `${smallestId} ~ ${largestId}`;
-        if (alertFired) {
-            // 결과 초기화
-            boxIds = [];
-            result_time.innerHTML = "";
-        }
         
     });
   });

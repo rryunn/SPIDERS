@@ -77,8 +77,8 @@ function SelectCalendar(){
                     td_date = this.textContent.substring(0, 1); //정규표현식 : 숫자가 아닌 문자가 있다면
                 }
                 calDate.textContent = td_date;
-                showTable(calDate); // TABLE를 클릭할때마다 새롭게 가지고 와야 ID가 다르게 적용됨.
-                
+                showTable(); // TABLE를 클릭할때마다 새롭게 가지고 와야 ID가 다르게 적용됨.
+                TimeSchedule();
             });
 
             $tr.appendChild($td);
@@ -104,6 +104,8 @@ next.addEventListener("click", (e) =>{
     start = tx +1; //그 달 마지막 요일을 알아낸 후 +1 한 값이 start 로 들어감.
     SelectCalendar();
     ComeSchedule();
+    showTable();
+    TimeSchedule();
     }
 )
 
@@ -124,35 +126,52 @@ prev.addEventListener("click", (e) =>{
     start = pageFirst.getDay();
     SelectCalendar();
     ComeSchedule();
+    showTable();
+    TimeSchedule();
     }
 )
 
 SelectCalendar();
 
-
 function ComeSchedule() {
+    fetch('/schedule')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach((schedule) => {
+
+            const dateId = `${schedule.YEAR}${schedule.MONTH}${schedule.DAY}`;
+            const td = document.getElementById(dateId);
+            if (td) {
+                const dataList = document.createElement('div');
+                dataList.textContent = `시간: ${schedule.TIME}, 사용자: ${schedule.NAME}`;
+                td.appendChild(dataList);
+                dataList.classList.add('schedule-info'); 
+            }
+            //이미 그 calID가 있다면 새롭게 등록되지 않는다.
+
+        })
+    })
+    .catch(error => {
+        console.error('일정 데이터를 가져오는 중 오류 발생:', error);
+    });
+}
+ComeSchedule();
+
+function TimeSchedule() {
     fetch('/schedule')
         .then(response => response.json())
         .then(data => {
             data.forEach((schedule) => {
 
-                const dateId = `${schedule.YEAR}${schedule.MONTH}${schedule.DAY}`;
-                const td = document.getElementById(dateId);
-                if (td) {
-                    const dataList = document.createElement('div');
-                    dataList.textContent = `시간: ${schedule.TIME}, 사용자: ${schedule.NAME}`;
-                    td.appendChild(dataList);
-                    dataList.classList.add('schedule-info'); 
-                }
                 //이미 그 calID가 있다면 새롭게 등록되지 않는다.
 
                 var minHour = schedule.TIME.substring(0,2);
                 var minMin= schedule.TIME.substring(3,5);
-                var maxHour = schedule.TIME.substring(9,11);
-                var maxMin = schedule.TIME.substring(12,14);
+                var maxHour = schedule.TIME.substring(8,10);
+                var maxMin = schedule.TIME.substring(11,13);
                 var min =0;
                 var max = 0;
-                var t = min;
+
                 if(parseInt(minMin) === 30){
                     min = parseInt(minHour) + 0.5;
                 }
@@ -166,19 +185,21 @@ function ComeSchedule() {
                 else if(parseInt(maxMin) === 0){
                     max  = parseInt(maxHour);
                 }
-                const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${t}`;
-                const dd = document.getElementById(calId);
-                if(dd){
-                    if(min<t <max)
-                        dd.style.backgroundColor = "lightblue";
-                }
-            });
+                //t가 min 부터 max 값이 될 때까지 (그리고 0.5씩 올라감)
+                for(var t = min ; t < max; t+=0.5){
+                    const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${t}`;
+                    const dd = document.getElementById(calId);
+                    if(dd){
+                       dd.style.backgroundColor = "lightblue";
+                    }
+                };
+            })
         })
         .catch(error => {
             console.error('일정 데이터를 가져오는 중 오류 발생:', error);
         });
 }
-ComeSchedule();
+TimeSchedule();
 
 var user = document.querySelector("#todo_user");
 var time = document.getElementById('todo_time');

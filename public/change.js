@@ -25,6 +25,7 @@ function showSchedule() {
             title.setAttribute('id', ctitle);
             
             change.appendChild(title);
+
             data.forEach((schedule,index) => {
                 
                 const listItem = document.createElement('div');
@@ -39,36 +40,8 @@ function showSchedule() {
                 editButton.textContent='수정';
                 editButton.classList.add('editButton');
                 
-                editButton.addEventListener('click',() => {
-
-                    const monthInput = document.createElement('input');
-                    monthInput.type = 'number';
-                    monthInput.min = 1; 
-                    monthInput.max = 12;
-                    monthInput.value = schedule.MONTH;
-
-
-                    const dayInput = document.createElement('input');
-                    dayInput.type = 'number';
-                    dayInput.min = 1; 
-                    dayInput.max = 31;
-                    dayInput.value = schedule.DAY;
-
-                    const timeInput = document.createElement('input');
-                    timeInput.type = 'text';
-                    timeInput.value = schedule.TIME;
-                    
-
-                    const nameInput = document.createElement('input');
-                    nameInput.type = 'text';
-                    nameInput.value = schedule.NAME;
-
-                    const confirmButton = document.createElement('button');
-                    confirmButton.textContent = '확인';
-
-                    confirmButton.addEventListener('click', () => {
-                        //
-                });
+                //editButton.addEventListener('click',() => {
+                //});
 
                 const delButton = document.createElement('button'); //html 요소에 쓸거 createElement 이용하는거 잊지말기 
                 delButton.textContent = '삭제';
@@ -124,6 +97,7 @@ function showSchedule() {
             console.error('일정 데이터를 가져오는 중 오류 발생:', error);
         });
 }
+    
 
 showSchedule();
 

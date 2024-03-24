@@ -234,7 +234,19 @@ boxes.forEach(function(box) {
     });
   });
 
-  
+document.getElementById("reset").addEventListener("click", function(){
+    var result_year_element = document.getElementById("result_year");
+    var result_month_element = document.getElementById("result_month");
+    var result_day_element = document.getElementById("result_day");
+    var result_time_element = document.getElementById("result_time");
+    var result_who_element = document.getElementById("result_who");
+    result_year_element.textContent = "";
+    result_month_element.textContent = "";
+    result_day_element.textContent = "";
+    result_time_element.textContent = "";
+    result_who_element.value = "";
+    //박스색깔도 !
+})
 
 // 확인 버튼 클릭 이벤트 핸들러
 document.getElementById("ok").addEventListener("click", function() {
@@ -250,7 +262,37 @@ document.getElementById("ok").addEventListener("click", function() {
     var result_day = result_day_element.textContent;
     var result_time = result_time_element.textContent;
     var result_who = result_who_element.value;
+    /*
+    var minHour = result_time.substring(0,2);
+    var minMin= result_time.substring(3,5);
+    var maxHour = result_time.substring(8,10);
+    var maxMin = result_time.substring(11,13);
+    var min =0;
+    var max = 0;
 
+    if(parseInt(minMin) === 30){
+        min = parseInt(minHour) + 0.5;
+    }
+    else if(parseInt(minMin) === 0){
+        min  = parseInt(minHour);
+    }
+
+    if(parseInt(maxMin) === 30){
+        max = parseInt(maxHour) + 0.5;
+    }
+    else if(parseInt(maxMin) === 0){
+        max  = parseInt(maxHour);
+    }
+
+    for(var t = min ; t < max; t+=0.5){
+        const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${t}`;
+        const dd = document.getElementById(calId);
+        if(dd.style.backgroundColor === "lightblue"){
+            alert("이미 예약된 시간입니다. 다른 시간을 이용해주세요");
+            break;
+        }
+    };*/
+    
     // AJAX 요청을 보냄
     fetch('/schedule', {
         method: 'POST',

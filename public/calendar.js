@@ -13,8 +13,10 @@ function showCalendar(){
     li2.style.fontSize = "15px";
     li3.style.fontSize = "15px";
     li1.style.color = "red";
-    li2.style.color = "white";
-    li3.style.color = "white";
+    li2.style.color = "black";
+    li3.style.color = "black";
+    var section = document.getElementById('calendar');
+    section.scrollIntoView({ behavior: 'smooth' })
 }
 function showRegist(){
     
@@ -26,9 +28,10 @@ function showRegist(){
     li1.style.fontSize = "15px";
     li3.style.fontSize = "15px";
     li2.style.color = "red";
-    li1.style.color = "white";
-    li3.style.color = "white";
-
+    li1.style.color = "black";
+    li3.style.color = "black";
+    var section = document.getElementById('regist');
+    section.scrollIntoView({ behavior: 'smooth' });
 }
 
 function showChange(){
@@ -41,6 +44,8 @@ function showChange(){
     li2.style.fontSize = "15px";
     li1.style.fontSize = "15px";
     li3.style.color = "red";
-    li2.style.color = "white";
-    li1.style.color = "white";
+    li2.style.color = "black";
+    li1.style.color = "black";
+    var section = document.getElementById('change');
+    section.scrollIntoView({ behavior: 'smooth' })
 }

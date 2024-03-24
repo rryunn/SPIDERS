@@ -1,9 +1,9 @@
 h1{
     text-align: left; 
     margin-left: 50px;
-    background-color: black;
     margin-top: 0;
     line-height: 65px;
+    background-color: white;
 }
 
 
@@ -20,7 +20,6 @@ h1{
     display: flex;
     font-size: 15px;
     margin: auto;
-    color: white;
     line-height: 35px;
     margin-right: 20px;
 } 
@@ -45,7 +44,7 @@ h1{
 
 }
 #calendar, #calendar_date {
-
+    background-color: white;
     display: inline-block; /* 인라인 블록 요소로 표시 */
     vertical-align: top; /* 상단 정렬 */
     width: calc(68%); /* 너비를 50%로 설정 (간격을 위해 5px 제외) */
@@ -62,6 +61,7 @@ h1{
     height: 650px;
     text-align: center; /* 텍스트를 가운데 정렬 */
     overflow: scroll;
+    
 }
 
 #regist{
@@ -137,13 +137,19 @@ h1{
 
 }
 #ok {
-    position: fixed;
-    bottom: 50px; /* 아래에서의 위치 */
+    position: absolute;
+    bottom: -500px; /* 아래에서의 위치 */
     right: 200px; /* 오른쪽에서의 위치 */
-    width: 100px; /* 가로 크기 */
+    width: 80px; /* 가로 크기 */
     height: 50px; /* 세로 크기 */
 }
-
+#reset {
+    position: absolute;
+    bottom: -500px; /* 아래에서의 위치 */
+    right: 300px; /* 오른쪽에서의 위치 */
+    width: 80px; /* 가로 크기 */
+    height: 50px; /* 세로 크기 */
+}
 body{
     font-family: "Gowun Dodum", sans-serif;
     font-weight: 400;
@@ -159,12 +165,13 @@ body{
     padding-bottom: 20px;
     width: 80%;
     margin: 0 auto ;
+    background-color: white;
 }
 
 .listItem {
     border: 1px solid black;
     padding: 30px;
-
+    background-color: white;
     width: 900px; /* 박스의 너비를 조절합니다. */
     margin: 0 auto 10px auto; /* 가운데 정렬 및 각 listItem 사이의 간격 조절합니다. */
     font-size: 20px;
@@ -201,9 +208,8 @@ body{
 
 #header{
     text-align: center;
-    background-color: rgb(0, 0, 0);
     height: 70px;
-
+    background-color: white;
 }
 .buttonContainer button{
     margin-left: 10px;
@@ -223,3 +229,6 @@ body{
 }
 
 
+.container{
+    background-color: #F7F7F7;
+}

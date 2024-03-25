@@ -189,8 +189,6 @@ boxes.forEach(function(box) {
             if (index !== -1) { //id의 값이 들어있다면
                 boxIds.splice(index, 1); // index번째에 위치한 요소 1개를 제거
             }
-
-
         }
 
         else{
@@ -271,7 +269,7 @@ document.getElementById("ok").addEventListener("click", function() {
     var result_day = result_day_element.textContent;
     var result_time = result_time_element.textContent;
     var result_who = result_who_element.value;
-    /*
+    
     var minHour = result_time.substring(0,2);
     var minMin= result_time.substring(3,5);
     var maxHour = result_time.substring(8,10);
@@ -294,13 +292,13 @@ document.getElementById("ok").addEventListener("click", function() {
     }
 
     for(var t = min ; t < max; t+=0.5){
-        const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${t}`;
-        const dd = document.getElementById(calId);
-        if(dd.style.backgroundColor === "lightblue"){
+        const checkId = `today_${result_year}${result_month}${result_day}${t}`;
+        const check = document.getElementById(checkId);
+        if(check !== null && check.style.backgroundColor === "lightblue"){
             alert("이미 예약된 시간입니다. 다른 시간을 이용해주세요");
             break;
         }
-    };*/
+    };
     
     // AJAX 요청을 보냄
     fetch('/schedule', {

@@ -10,6 +10,7 @@ h1{
 #name{
     text-align: center ;
     font-size: 35px;
+    padding-top: 20px;
 }
 
 .container h2{
@@ -81,7 +82,10 @@ h1{
 }
 
 #rtitle{
-    margin-bottom: 30px;
+    text-align: center ;
+    font-size: 35px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 #side{
     text-align: center;
@@ -216,14 +220,17 @@ body{
 }
 
 #ctitle{
-    font-size: 25px;
+
     font-weight: bolder;
+    text-align: center ;
+    font-size: 35px;
+    padding-top: 5px;
     padding-bottom: 20px;
 }
 
 .schedule-info {
     font-size: 10px;
-    background-color: lightblue;
+    background-color: #c2dec3;
     border-radius: 10px; /* 끝이 둥근 타원 모양으로 만듭니다. */
     margin: 0 auto 10px auto; /* 가운데 정렬 및 각 listItem 사이의 간격 조절합니다. */
 }
@@ -231,4 +238,18 @@ body{
 
 .container{
     background-color: #F7F7F7;
+}
+
+#img_btn{
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 버튼을 이미지 중앙에 위치시킴 */
+    padding: 15px 25px;
+    background-color: #495d76;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   font-size: 15px;
 }

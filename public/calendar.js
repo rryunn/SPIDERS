@@ -49,3 +49,7 @@ function showChange(){
     var section = document.getElementById('change');
     section.scrollIntoView({ behavior: 'smooth' })
 }
+
+document.getElementById("img_btn").addEventListener("click", function(){
+    showRegist();
+});

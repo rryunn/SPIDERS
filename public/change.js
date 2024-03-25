@@ -20,7 +20,7 @@ function showSchedule() {
 
             change.innerHTML = ''; // 일정을 표시할 요소 초기화
             const title = document.createElement('div');
-            title.textContent = `일정리스트`;
+            title.innerHTML = `일정리스트`;
             const ctitle=`ctitle`;
             title.setAttribute('id', ctitle);
             
@@ -41,7 +41,7 @@ function showSchedule() {
                 editButton.classList.add('editButton');
                 
                 //editButton.addEventListener('click',() => {
-                    
+
                 //});
 
                 const delButton = document.createElement('button'); //html 요소에 쓸거 createElement 이용하는거 잊지말기 

@@ -194,7 +194,7 @@ function TimeSchedule() {
                         const userList = document.createElement('div');
                         userList.textContent = `${schedule.NAME}`;
                         dd.appendChild(userList);
-                        dd.style.backgroundColor = "lightblue";
+                        dd.style.backgroundColor = "#c2dec3";
                     }
                 };
             })

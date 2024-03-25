@@ -14,7 +14,7 @@
 <body>
     <div class = "container">
         <header id = "header">
-            <h1 style= "font-weight: bold; " >&#x1F577;SPIDERS 
+            <h1 style= "font-weight: bold;">&#x1F577;SPIDERS 
                 <ul id = "list">
                     <li id="li1" onclick = "showCalendar()"; style="font-size: 18px; color : red";> 전체 일정 </li>
                     <li id="li2" onclick = "showRegist()" > 일정 등록하기 </li>
@@ -23,8 +23,10 @@
             </h1>
     
         </header>
-
-        <img src ="spring.png" width="100%"; height = "600px";>
+        <div style="position: relative;">
+        <img src ="spiders.png" width="100%"; height = "600px";>
+        <button id="img_btn">지금 예약하기</button>
+        </div>
         <h2 id="name">오늘의 일정</h2>
         <div id = "mini_container">
             <section id = "calendar" >

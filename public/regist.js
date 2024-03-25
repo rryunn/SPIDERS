@@ -19,6 +19,7 @@ var result_year = document.querySelector("#result_year");
 var result_who = document.querySelector("#result_who");
 var resultDate = 0;
 
+var isClicked = false;
 
 function RegistCalendar(){
     for (var i = 0; i < 6; i ++) {
@@ -69,7 +70,6 @@ function RegistCalendar(){
                 }
             }
 
-            var isClicked = false;
             $td.addEventListener("mousemove", function() {
                 if (!isClicked) {
                     this.style.backgroundColor = "rgb(241, 243, 203)"; 
@@ -81,7 +81,6 @@ function RegistCalendar(){
                     this.style.backgroundColor = ""; // 초기 배경색으로 되돌리기
                 }
             });
-            var isClicked = false; 
             $td.addEventListener("click", function() {
                 if (!isClicked) {
                     this.style.backgroundColor = "rgb(241, 243, 203)";
@@ -235,6 +234,16 @@ boxes.forEach(function(box) {
   });
 
 document.getElementById("reset").addEventListener("click", function(){
+    boxes.forEach(function(box) {
+        box.style.backgroundColor = ""; // 초기 색으로 되돌리기
+    });
+
+    // td 초기화
+    var tds = document.querySelectorAll("td");
+    tds.forEach(function(td) {
+        td.style.backgroundColor = ""; // 초기 색으로 되돌리기
+    });
+    isClicked = false;
     var result_year_element = document.getElementById("result_year");
     var result_month_element = document.getElementById("result_month");
     var result_day_element = document.getElementById("result_day");
@@ -245,7 +254,7 @@ document.getElementById("reset").addEventListener("click", function(){
     result_day_element.textContent = "";
     result_time_element.textContent = "";
     result_who_element.value = "";
-    //박스색깔도 !
+    boxIds=[];
 })
 
 // 확인 버튼 클릭 이벤트 핸들러

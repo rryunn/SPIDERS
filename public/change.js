@@ -41,6 +41,7 @@ function showSchedule() {
                 editButton.classList.add('editButton');
                 
                 //editButton.addEventListener('click',() => {
+                    
                 //});
 
                 const delButton = document.createElement('button'); //html 요소에 쓸거 createElement 이용하는거 잊지말기 
@@ -98,7 +99,6 @@ function showSchedule() {
         });
 }
     
-
 showSchedule();
 
 

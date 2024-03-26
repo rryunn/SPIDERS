@@ -39,7 +39,6 @@ h1{
 
 #mini_container{
 
-    border: 1px solid black;
     width: 85%;
     margin: 0 auto; /* 가로 방향으로 자동 마진을 통해 중앙 정렬 */
 

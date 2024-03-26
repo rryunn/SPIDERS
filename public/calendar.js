@@ -15,8 +15,8 @@ function showCalendar(){
     li1.style.color = "red";
     li2.style.color = "black";
     li3.style.color = "black";
-    var section = document.getElementById('calendar');
-    section.scrollIntoView({ behavior: 'smooth' })
+    
+    window.location.reload();
 }
 function showRegist(){
     
@@ -53,3 +53,4 @@ function showChange(){
 document.getElementById("img_btn").addEventListener("click", function(){
     showRegist();
 });
+

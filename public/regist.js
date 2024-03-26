@@ -18,7 +18,7 @@ var result_time = document.querySelector("#result_time");
 var result_year = document.querySelector("#result_year");
 var result_who = document.querySelector("#result_who");
 var resultDate = 0;
-
+var isReserved = false; // 예약 여부를 나타내는 변수 추가
 var isClicked = false;
 
 function RegistCalendar(){
@@ -93,18 +93,23 @@ function RegistCalendar(){
                     alert("날짜는 하루만 선택 가능합니다.");
                     
 
-                if (isClicked){
-                    this.style.backgroundColor = ""; // 초기 배경색으로 되돌리기
-                    result_month.innerHTML = ``;
-                    result_day.innerHTML = ``;
-                    result_time.innerHTML = ``;
-                    result_year.innerHTML = ``;
-                    boxes.forEach(function(box) {
-                        box.style.backgroundColor = "";
-                    });
+                    if (isClicked){
+                        result_month.innerHTML = ``;
+                        result_day.innerHTML = ``;
+                        result_time.innerHTML = ``;
+                        result_year.innerHTML = ``;
 
-                    isClicked = false;
-                }
+                        boxes.forEach(function(box) {
+                            box.style.backgroundColor = "";
+                        });
+                        boxIds=[];
+                        
+                        var tds = document.querySelectorAll("td");
+                        tds.forEach(function(td) {
+                            td.style.backgroundColor = ""; // 초기 색으로 되돌리기
+                        });
+                        isClicked = false;
+                    }
                 }
             });
             
@@ -183,10 +188,11 @@ boxes.forEach(function(box) {
     box.addEventListener("click", function() {
         var id = parseFloat(box.id); // id를 숫자로 변환
 
+        //이미 박스가 선택되어있을 경우 가정
         if(this.style.backgroundColor === "rgb(224, 230, 204)"){
             this.style.backgroundColor = "rgb(230, 210, 204)";
-            var index = boxIds.indexOf(parseFloat(this.id));
-            if (index !== -1) { //id의 값이 들어있다면
+            var index = boxIds.indexOf(this.id);
+            if (index) { //id의 값이 들어있다면
                 boxIds.splice(index, 1); // index번째에 위치한 요소 1개를 제거
             }
         }
@@ -292,14 +298,23 @@ document.getElementById("ok").addEventListener("click", function() {
     }
 
     for(var t = min ; t < max; t+=0.5){
-        const checkId = `today_${result_year}${result_month}${result_day}${t}`;
+        const checkId = `today_${result_year}${result_month}${result_day}_${t}`;
         const check = document.getElementById(checkId);
-        if(check !== null && check.style.backgroundColor === "lightblue"){
+        if(check && check.style.backgroundColor === "#c2dec3"){
             alert("이미 예약된 시간입니다. 다른 시간을 이용해주세요");
+            isReserved = true;
             break;
         }
     };
     
+    if (isReserved) {
+        result_time.innerHTML = ""; // result_time 리셋
+        boxes.forEach(function(box) {
+            box.style.backgroundColor = "";
+        });
+    }
+
+
     // AJAX 요청을 보냄
     fetch('/schedule', {
         method: 'POST',

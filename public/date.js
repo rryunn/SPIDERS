@@ -76,7 +76,7 @@ function SelectCalendar(){
             }
 
             $td.addEventListener("click", function(){
-                var td_date = this.textContent.substring(0, 2); //textContent 문자열의 0~1를 가져오겠다.
+                var td_date = this.textContent.substring(0, 2);
                 if (/\D/.test(td_date)) {
                     td_date = this.textContent.substring(0, 1); //정규표현식 : 숫자가 아닌 문자가 있다면
                 }
@@ -147,7 +147,7 @@ function ComeSchedule() {
             const td = document.getElementById(dateId);
             if (td) {
                 const dataList = document.createElement('div');
-                dataList.textContent = `${schedule.TIME}, ${schedule.NAME}`;
+                dataList.textContent = `* ${schedule.TIME}, ${schedule.NAME}`;
                 td.appendChild(dataList);
                 dataList.classList.add('schedule-info'); 
             }
@@ -188,7 +188,7 @@ function TimeSchedule() {
                 }
                 //t가 min 부터 max 값이 될 때까지 (그리고 0.5씩 올라감)
                 for(var t = min ; t < max; t+=0.5){
-                    const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}${t}`;
+                    const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}_${t}`;
                     const dd = document.getElementById(calId);
                     if(dd){
                         const userList = document.createElement('div');
@@ -217,7 +217,7 @@ function showTable() {
     var j = 9;
     for (var i = 0; i < 26; i++) {
         var todo_tr = document.createElement('div');
-        const todo_id = `today_${toYear}${toMonth}${calDate.textContent}${j}`;
+        const todo_id = `today_${toYear}${toMonth}${calDate.textContent}_${j}`;
         j = j+ 0.5;
         todo_tr.setAttribute('id', todo_id);
         todo_tr.textContent = t % 1 == 0 ? `${t}:00 ~ ${t}:30` : `${t - 0.5}:30 ~ ${t + 0.5}:00`;

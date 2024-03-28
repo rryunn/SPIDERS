@@ -180,7 +180,6 @@ for(var i = 0; i<26; i++){
 
 
 var boxes= document.querySelectorAll(".box");
- //위치가 박스가 전부 생성된 후여야함.
 var boxIds = [];
 
 boxes.forEach(function(box) {

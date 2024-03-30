@@ -199,7 +199,7 @@ boxes.forEach(function(box) {
         else{
             this.style.backgroundColor = "rgb(224, 230, 204)";
             if (!isNaN(id)) { // id가 숫자인 경우에만 처리
-                boxIds.push(id); // id를 배열에 추가
+                boxIds.push(id); 
             }
         }
 

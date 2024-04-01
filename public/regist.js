@@ -207,7 +207,7 @@ boxes.forEach(function(box) {
         var smallestId = boxIds[0];
         var largestId = boxIds[boxIds.length - 1];
         
-        var smallestHour = parseInt(smallestId); // 정수부를 시간으로 설정
+        var smallestHour = parseInt(smallestId); 
         var smallestMinute = smallestId % 1 !== 0 ? "30" : "00"; // 소수부가 있는 경우에는 30분, 없는 경우에는 00분으로 설정
         if(smallestHour ==9){
             smallestId = `0${smallestHour}:${smallestMinute}`; // 시간과 분을 합쳐서 표시

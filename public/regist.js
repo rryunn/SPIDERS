@@ -212,7 +212,7 @@ boxes.forEach(function(box) {
         if(smallestHour ==9){
             smallestId = `0${smallestHour}:${smallestMinute}`; // 시간과 분을 합쳐서 표시
         }else{
-            smallestId = `${smallestHour}:${smallestMinute}`; // 시간과 분을 합쳐서 표시
+            smallestId = `${smallestHour}:${smallestMinute}`; 
         }
 
 

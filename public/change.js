@@ -36,9 +36,9 @@ function showSchedule() {
 
                 listItem.textContent = `날짜 : ${schedule.YEAR}년 ${schedule.MONTH}월 ${schedule.DAY}일, 시간 : ${schedule.TIME}, 사용자 : ${schedule.NAME}`;
                 
-                const editButton = document.createElement('button'); 
-                editButton.textContent='수정';
-                editButton.classList.add('editButton');
+                //const editButton = document.createElement('button'); 
+                //editButton.textContent='수정';
+                //editButton.classList.add('editButton');
                 
                 //editButton.addEventListener('click',() => {
 
@@ -81,7 +81,7 @@ function showSchedule() {
 
                 const buttonContainer = document.createElement('div'); // 두 버튼을 오른쪽에 배치하기 위해 하나의 컨테이너로 묶기
                 buttonContainer.classList.add('buttonContainer');
-                buttonContainer.appendChild(editButton);
+                //buttonContainer.appendChild(editButton);
                 buttonContainer.appendChild(delButton);
 
                 listItem.appendChild(buttonContainer);
@@ -90,7 +90,7 @@ function showSchedule() {
                 const scheduleDate = new Date(`${schedule.MONTH}/${schedule.DAY}/${schedule.YEAR}`);
                 if (scheduleDate < currentDate) {
                     listItem.style.backgroundColor = 'lightgray';
-                    buttonContainer.removeChild(editButton);
+                    //buttonContainer.removeChild(editButton);
                 }
             });
         })

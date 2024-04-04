@@ -297,9 +297,10 @@ document.getElementById("ok").addEventListener("click", function() {
     }
 
     for(var t = min ; t < max; t+=0.5){
-        const checkId = `today_${result_year}${result_month}${result_day}_${t}`;
+        const checkId = `ttoday_${result_year}${result_month}${result_day}_${t}`;
         const check = document.getElementById(checkId);
-        if(check && check.style.backgroundColor === "#c2dec3"){
+
+        if(check){
             alert("이미 예약된 시간입니다. 다른 시간을 이용해주세요");
             isReserved = true;
             break;

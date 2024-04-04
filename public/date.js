@@ -191,6 +191,8 @@ function TimeSchedule() {
                     const calId = `today_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}_${t}`;
                     const dd = document.getElementById(calId);
                     if(dd){
+                        const newId = `ttoday_${schedule.YEAR}${schedule.MONTH}${schedule.DAY}_${t}`;
+                        dd.id = newId;
                         const userList = document.createElement('div');
                         userList.textContent = `${schedule.NAME}`;
                         dd.appendChild(userList);

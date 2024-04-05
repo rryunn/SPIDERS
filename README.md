@@ -22,7 +22,7 @@ DB : Mysql
 
 
 서버 : Node.js
-<img src="https://github.com/rryunn/SPIDERS/assets/122458948/8d849e88-0d90-467c-9305-e3690a85db52" alt="스크린샷" width="400" height="300">
+<img src="https://github.com/rryunn/SPIDERS/assets/122458948/8d849e88-0d90-467c-9305-e3690a85db52" alt="스크린샷" width="400" height="200">
 
 
 

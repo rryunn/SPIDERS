@@ -22,6 +22,7 @@ DB : Mysql
 
 
 서버 : Node.js
+![스크린샷 2024-04-05 113223](https://github.com/rryunn/SPIDERS/assets/122458948/8d849e88-0d90-467c-9305-e3690a85db52)
 
 
 
@@ -103,7 +104,7 @@ DB : Mysql
 
 
 
-
+* react 프레임워크를 배운 후 새롭게 다시 제작해볼 예정. ( 웹뷰 기능을 이용하여 앱으로 다시 제작 )
 
 
 

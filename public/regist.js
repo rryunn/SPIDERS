@@ -304,7 +304,7 @@ document.getElementById("ok").addEventListener("click", function() {
             alert("예약된 시간대가 있어요.");
             isReserved = true;
             break;
-            
+            //코드 수정필요
         }
 
     };

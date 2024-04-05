@@ -245,8 +245,8 @@ body{
     left: 50%;
     transform: translate(-50%, -50%); /* 버튼을 이미지 중앙에 위치시킴 */
     padding: 15px 25px;
-    background-color: #495d76;
-    color: white;
+    background-color: #f9f9f9;
+
     border: none;
     border-radius: 5px;
     cursor: pointer;

@@ -298,13 +298,15 @@ document.getElementById("ok").addEventListener("click", function() {
 
     for(var t = min ; t < max; t+=0.5){
         const checkId = `ttoday_${result_year}${result_month}${result_day}_${t}`;
-        const check = document.getElementById(checkId);
-
-        if(check){
-            alert("이미 예약된 시간입니다. 다른 시간을 이용해주세요");
+        if (!document.getElementById(checkId)) {
+            var id = checkId;
+        } else {
+            alert("예약된 시간대가 있어요.");
             isReserved = true;
             break;
+            
         }
+
     };
     
     if (isReserved) {

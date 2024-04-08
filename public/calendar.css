@@ -17,7 +17,7 @@ h1{
     margin-top: 0;
 }
 #list{
-    float: right; /* 왼쪽으로 플로팅 */
+    float: right; 
     display: flex;
     font-size: 15px;
     margin: auto;
